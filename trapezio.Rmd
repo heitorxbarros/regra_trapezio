@@ -62,8 +62,13 @@ class: inverse, center, middle
 ## Contextualização
 
 .pull-left[
-* A Regra do Trapézio é uma técnica para resolver numericamente **integrais definidas**.
-* Um artigo da Science, de 2016, informa que esse método foi usado na Babilônia desde antes de 50 A.C. Os astrônomos babilônios estavam interessados em calcular a posição de Jupiter.
+<ul>
+<li>A Regra do Trapézio é uma técnica para resolver numericamente <strong>integrais definidas</strong>.
+</ul>
+</br>
+<ul>
+<li style='margin-top:10px'>Um artigo da Science, de 2016, informa que esse método foi usado na Babilônia desde antes de 50 A.C. Os astrônomos babilônios estavam interessados em calcular a posição de Jupiter.
+</ul>
 ]
 .pull-right[
 ```{r echo=FALSE, out.width="100%", fig.align='center', dpi=600}
@@ -95,7 +100,7 @@ knitr::include_graphics("Imagem2.png")
 .pull-left[
 A área pode ser aproximada por: 
 </br>
-$$\int_a^b f(x)dx \approx (b-a)*\frac{1}{2}(f(a)+f(b)) $$
+$$I = \int_a^b f(x)dx \approx \frac{1}{2}*(b-a)*(f(a)+f(b))  .$$ 
 ]
 .pull-right[
 ```{r echo=FALSE,out.width = '800px', fig.align='center', dpi=600}
@@ -115,9 +120,9 @@ Na Regra do Trapézio Composta, particiona-se o intervalo inicial $[a,b]$ em $N$
 .pull-left[
 A área pode ser aproximada por: 
 </br>
-$$\int_a^b f(x)dx \approx \sum_{k=1}^N \frac{f(x_{k-1})+f(x_k)}{2}\triangle{x_k}$$ 
+$$I = \int_a^b f(x)dx \approx \sum_{k=1}^N \frac{f(x_{k-1})+f(x_k)}{2}\triangle{x_k},$$  
 </br>
-Onde $\triangle{x_k}=x_k-x_{k-1}$
+onde $\triangle{x_k}=x_k-x_{k-1}$.
 ]
 .pull-right[
 ```{r echo=FALSE,out.width = '800px', fig.align='center', dpi=600}
@@ -129,16 +134,17 @@ knitr::include_graphics("Imagem3.png")
 
 Quando o intervalo de integração é dividido em $N$ subintervalos de mesmo tamanho, a área pode ser aproximada por:
 
-$$\int_a^b f(x)dx \approx \triangle{x_k}*\sum_{k=1}^N\left( f(x_k)+\frac{f(x_N)+f(x_0)}{2}\right)$$
+$$I = \int_a^b f(x)dx \approx \triangle{x}*\sum_{k=1}^N\left( f(x_k)+\frac{f(x_N)+f(x_0)}{2}\right), $$
 </br> 
-Onde $\triangle{x_k}=\frac{b-a}{N}$
+onde $\triangle{x}=\frac{b-a}{N}$.
 ---
 ## Teoria
 .pull-left[
 O valor absoluto do erro de aproximação da Regra do Trapézio Composta é limitado por:
 
-$$|E|\leq \frac{(b-a)^3}{12N^2}[max\left|f''(x)\right|] $$  $a\leq x \leq b$
-
+$|E|\leq \frac{(b-a)^3}{12N^2}[max\left|f''(x)\right|]$,    $a\leq x \leq b.$
+</br>
+ 
 ]
 .pull-right[
 ```{r, out.width="120%",echo=FALSE}
@@ -192,13 +198,12 @@ Seja $D=M-H$ uma v.a. que representa a diferença entre as alturas de uma mulher
 D~N(-7, 64).
 ---
 ## Exemplo
-$$P(M-N>0) = P(D>0) = $$
-$$ = P[(D+7)/8)>7/8] = $$
-$$ = P(Z>0.875) = 1 - P(Z≤0.875) = $$
-$$ = 1 - [0.5 + P(0<Z≤0.875)] \tag*{, onde Z~N(0,1)} $$
-
+$$P(M-N>0) = P(D>0) = P[(D+7)/8)>7/8] = $$
+</br>
+$$ P(Z>0.875) = 0.5 - P(0 < Z ≤0.875) \tag*{, onde Z~N(0,1).} $$
+</br>
 $$P(0<Z≤0.875) = \int_0^{0.875} \frac{1}{2\pi}e^{-\frac{1}{2}Z^2}dz$$
-
+</br> 
 Aplicando a Regra do Trapézio Composta para resolver esta integral...
 ---
 ## Exemplo
@@ -225,7 +230,7 @@ regra_do_trapezio(function(x) exp(-x^2/2)/sqrt(2*pi),
 
 $$P(M-H>0) = 1 - (0.5 + 0.3091) = 0.1909$$
 
-A probabilidade de uma mulher ser mais alta do que um homem é 0.1909
+A probabilidade de uma mulher ser mais alta do que um homem é 0.1909.
 
 ---
 class: inverse, center, middle
